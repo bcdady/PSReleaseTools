@@ -8,45 +8,66 @@ schema: 2.0.0
 # Get-PSReleaseCurrent
 
 ## SYNOPSIS
+
 Get the current PowerShell v6 release
 
 ## SYNTAX
 
-```
-Get-PSReleaseCurrent [<CommonParameters>]
+```yaml
+Get-PSReleaseCurrent [-Preview] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-This command will query the GitHub repository for the latest release and write an object to the pipeline. 
 
-If you are running v6 the LocalVersion property will reflect the GitCommitID so you can accurately compare and determine if you need to update.
+This command will query the GitHub repository for the latest stable release and write an object to the pipeline. If you are running v6 the LocalVersion property will reflect the GitCommitID so you can accurately compare and determine if you need to update. Use the -Preview parameter to get the latest preview build.
 
 ## EXAMPLES
 
 ### Example 1
-```
+
+```powershell
 PS C:\> Get-PSReleaseCurrent
+
 
 Name                              Version Released             LocalVersion
 ----                              ------- --------             ------------
-v6.0.0 release of PowerShell Core v6.0.0  1/10/2018 5:21:29 PM 5.1.16299.98
+v6.1.2 Release of PowerShell Core v6.1.2  1/15/2019 3:02:39 PM 5.1.17763.134
 ```
 
 This gets the current release from a Windows platform.
 
 ### Example 2
-```
-PS /home/me> Get-PSReleaseCurrent
-Name                              Version Released            LocalVersion
-----                              ------- --------            ------------
-v6.0.0 release of PowerShell Core v6.0.0  1/10/18 10:21:29 PM v6.0.0
+
+```powershell
+PS /home/me> Get-PSReleaseCurrent -preview
+
+Name                                        Version          Released           LocalVersion
+----                                        -------          --------           ------------
+v6.2.0-preview.4 Release of PowerShell Core v6.2.0-preview.4 1/28/19 9:28:01 PM 6.1.2
 ```
 
-This gets the current release from an Ubuntu platform.
+This gets the current preview release from an Ubuntu platform.
 
 ## PARAMETERS
 
+### -Preview
+
+Get the latest preview release.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
+
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
@@ -58,8 +79,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Object
 
 ## NOTES
-Learn more about PowerShell:
-http://jdhitsolutions.com/blog/essential-powershell-resources/
+
+Learn more about PowerShell: http://jdhitsolutions.com/blog/essential-powershell-resources/
 
 ## RELATED LINKS
 
